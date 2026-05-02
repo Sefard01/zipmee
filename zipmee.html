@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZipMee</title>
+  <link rel="icon" type="image/x-icon" href="upload.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="main-header">
+      <h1 class="logo">ZipMee</h1>
+
+      <div class="header-controls">
+        <!-- Expandable Search -->
+        <div class="search-expand-wrapper" id="searchExpandWrapper">
+          <button class="search-icon-btn" id="searchIconBtn" aria-label="Toggle search" title="Search messages">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+          <div class="search-panel" id="searchPanel">
+            <input type="text" id="textSearch" class="search-input" placeholder="Search messages…" autocomplete="off">
+            <span id="searchCount" class="search-count" style="display:none;"></span>
+            <button id="searchPrev" class="search-nav-btn" style="display:none;" aria-label="Previous result">&#8593;</button>
+            <button id="searchNext" class="search-nav-btn" style="display:none;" aria-label="Next result">&#8595;</button>
+          </div>
+        </div>
+
+        <!-- Analytics Button -->
+        <button id="toggleSidebar" aria-label="Open Analytics">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            style="vertical-align:middle;margin-right:5px;">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+          Analytics
+        </button>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <!-- Sidebar with Analytics -->
+      <aside id="sidebar" class="sidebar" role="complementary">
+        <div class="sidebar-header">
+          <h2 style="margin: 0; font-size: 18px;">Chat Analytics</h2>
+          <button id="closeSidebar" aria-label="Close sidebar">×</button>
+        </div>
+        <div class="analytics-section">
+          <article class="stat-card" id="relationshipCard" style="display:none;">
+            <h3 style="margin: 0 0 12px 0; font-size: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; color: #1e293b;">Interaction Analytics</h3>
+            <div id="relationshipStats"></div>
+          </article>
+          <article class="stat-card">
+            <h3 style="margin: 0 0 12px 0; font-size: 15px;">Most Used Words</h3>
+            <div id="wordStats"></div>
+          </article>
+          <article class="stat-card">
+            <h3 style="margin: 0 0 12px 0; font-size: 15px;">Most Used Emojis</h3>
+            <div id="emojiStats"></div>
+          </article>
+          <article class="stat-card">
+            <h3 style="margin: 0 0 12px 0; font-size: 15px;">Response Times</h3>
+            <div id="responseStats"></div>
+          </article>
+          <article class="stat-card">
+            <h3 style="margin: 0 0 12px 0; font-size: 15px;">Chat Summary</h3>
+            <div id="chatSummary"></div>
+          </article>
+        </div>
+      </aside>
+
+      <!-- Main Chat Area -->
+      <main class="chat-area">
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <div class="upload-in">
+            <img src="upload.svg" alt="" srcset="">
+            <input type="file" id="zipInput" accept=".zip,.txt" hidden aria-label="Upload chat file">
+            <label for="zipInput">Upload Chat File (ZIP or TXT)</label>
+            <span id="fileName" class="file-name" role="status"></span>
+          </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay displayNone">
+          <div class="loader"></div>
+          <div class="loading-text">Analyzing your chat...</div>
+          <div class="progress-container">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+          <div id="progressText" class="progress-text">0%</div>
+        </div>
+
+        <!-- Chat Display Area -->
+        <div class="chat-wrapper displayNone" role="region" aria-label="Chat messages">
+          <div class="chat-header">
+            <div class="user-left" id="leftUser"></div>
+            <button id="swapUsersBtn" class="swap-users-btn" aria-label="Swap sender and receiver"
+              title="Swap sender/receiver">⇄</button>
+            <div class="user-right" id="rightUser"></div>
+          </div>
+          <div id="miniProgress" class="mini-progress displayNone">
+            <div class="mini-progress-bar" id="miniProgressBar"></div>
+            <div class="mini-progress-text" id="miniProgressText">Parsing... 0%</div>
+          </div>
+          <div id="chatContainer" class="chat-container"></div>
+          <button id="scrollToBottomBtn" class="scroll-btn" aria-label="Scroll to bottom">↓</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
