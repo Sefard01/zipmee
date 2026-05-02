@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZipMee</title>
+  <meta name="description"
+    content="Upload your WhatsApp chat as a ZIP or TXT file and get deep analytics, word trends, response times — completely free and private. All processing happens in your browser.">
+  <link rel="icon" type="image/x-icon" href="upload.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css">
+</head>
+
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" id="navLogo">ZipMee</a>
+      <div class="nav-links">
+        <a href="#features" id="navFeatures">Features</a>
+        <a href="#how-to-use" id="navHowTo">How to Use</a>
+        <a href="zipmee.html" class="nav-cta" id="navCta">Open App</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#features" id="mNavFeatures">Features</a>
+    <a href="#how-to-use" id="mNavHowTo">How to Use</a>
+    <a href="zipmee.html" id="mNavApp">Open App</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-label">WhatsApp Chat Analyzer <br>
+          100% Browser-Based &mdash; No Data Leaves Your Device</div>
+        <h1 class="hero-title">
+          Understand Your Chats<br>
+          Like Never Before
+        </h1>
+        <p class="hero-desc">
+          Upload your WhatsApp chat as a ZIP or TXT file. No server, no data upload —
+          everything runs in your browser. Instantly see message stats,
+          response times, word frequency, and much more.
+        </p>
+        <div class="hero-actions">
+          <a href="zipmee.html" class="btn-primary" id="heroBtn">Upload Your Chat</a>
+          <a href="#how-to-use" class="btn-ghost" id="heroLearn">See How It Works</a>
+        </div>
+      </div>
+
+      <!-- Hero SVG Illustration -->
+      <div class="hero-image-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 280" class="hero-img" id="heroImg"
+          aria-label="ZipMee: export to upload to analyze">
+          <defs>
+            <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,1 L7,4 L0,7 Z" fill="#006c4a" />
+            </marker>
+          </defs>
+
+          <!-- Phone -->
+          <rect x="18" y="28" width="90" height="160" rx="14" fill="#006c4a" opacity="0.1" stroke="#006c4a"
+            stroke-width="1" opacity2="0.3" />
+          <rect x="28" y="50" width="70" height="118" rx="3" fill="#e6f3ee" />
+          <!-- WA header bar -->
+          <rect x="28" y="50" width="70" height="22" rx="3" fill="#006c4a" opacity="0.85" />
+          <text x="63" y="65" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle"
+            font-weight="600">Chat</text>
+          <!-- Chat bubbles left -->
+          <rect x="32" y="78" width="38" height="10" rx="5" fill="#ffffff" stroke="#a2a9b1" stroke-width="0.5" />
+          <rect x="32" y="92" width="48" height="10" rx="5" fill="#ffffff" stroke="#a2a9b1" stroke-width="0.5" />
+          <!-- Chat bubbles right -->
+          <rect x="52" y="106" width="40" height="10" rx="5" fill="#006c4a" opacity="0.55" />
+          <rect x="46" y="120" width="46" height="10" rx="5" fill="#006c4a" opacity="0.55" />
+          <rect x="32" y="134" width="34" height="10" rx="5" fill="#ffffff" stroke="#a2a9b1" stroke-width="0.5" />
+          <!-- Home bar -->
+          <rect x="50" y="198" width="26" height="3" rx="2" fill="#006c4a" opacity="0.25" />
+
+          <!-- Arrow 1 -->
+          <line x1="116" y1="108" x2="148" y2="108" stroke="#006c4a" stroke-width="1.8" marker-end="url(#arrowHead)" />
+
+          <!-- ZIP File -->
+          <rect x="156" y="78" width="72" height="60" rx="8" fill="#006c4a" opacity="0.1" stroke="#006c4a"
+            stroke-width="1" />
+          <!-- Folded corner -->
+          <polygon points="204,78 228,78 228,100 204,100" fill="#006c4a" opacity="0.18" />
+          <polygon points="204,78 228,100 204,100" fill="#006c4a" opacity="0.3" />
+          <text x="192" y="116" font-family="monospace" font-size="16" fill="#006c4a" text-anchor="middle"
+            font-weight="700">.zip</text>
+
+          <!-- Arrow 2 -->
+          <line x1="236" y1="108" x2="268" y2="108" stroke="#006c4a" stroke-width="1.8" marker-end="url(#arrowHead)" />
+
+          <!-- Browser / Analytics window -->
+          <rect x="276" y="42" width="130" height="132" rx="8" fill="#f8f9fa" stroke="#a2a9b1" stroke-width="1" />
+          <!-- Browser titlebar -->
+          <rect x="276" y="42" width="130" height="20" rx="8" fill="#eaecf0" />
+          <rect x="276" y="52" width="130" height="10" fill="#eaecf0" />
+          <circle cx="290" cy="52" r="4" fill="#e57373" opacity="0.75" />
+          <circle cx="302" cy="52" r="4" fill="#ffb74d" opacity="0.75" />
+          <circle cx="314" cy="52" r="4" fill="#81c784" opacity="0.75" />
+          <!-- Stat pills -->
+          <rect x="284" y="70" width="34" height="18" rx="4" fill="#e6f3ee" stroke="#006c4a" stroke-width="0.6" />
+          <text x="301" y="82" font-family="Inter,sans-serif" font-size="7.5" fill="#006c4a" text-anchor="middle"
+            font-weight="700">1.2k msg</text>
+          <rect x="324" y="70" width="34" height="18" rx="4" fill="#e6f3ee" stroke="#006c4a" stroke-width="0.6" />
+          <text x="341" y="82" font-family="Inter,sans-serif" font-size="7.5" fill="#006c4a" text-anchor="middle"
+            font-weight="700">4.2s avg</text>
+          <!-- Bar chart -->
+          <rect x="284" y="138" width="12" height="26" rx="2" fill="#006c4a" opacity="0.65"
+            transform="scale(1,-1) translate(0,-248)" />
+          <rect x="300" y="138" width="12" height="38" rx="2" fill="#006c4a" opacity="0.8"
+            transform="scale(1,-1) translate(0,-248)" />
+          <rect x="316" y="138" width="12" height="18" rx="2" fill="#006c4a" opacity="0.5"
+            transform="scale(1,-1) translate(0,-248)" />
+          <rect x="332" y="138" width="12" height="30" rx="2" fill="#006c4a" opacity="0.7"
+            transform="scale(1,-1) translate(0,-248)" />
+          <rect x="348" y="138" width="12" height="22" rx="2" fill="#006c4a" opacity="0.55"
+            transform="scale(1,-1) translate(0,-248)" />
+          <line x1="282" y1="140" x2="366" y2="140" stroke="#a2a9b1" stroke-width="0.8" />
+          <text x="324" y="158" font-family="Inter,sans-serif" font-size="7.5" fill="#72777d" text-anchor="middle">Word
+            Frequency</text>
+
+          <!-- Step labels -->
+          <text x="63" y="216" font-family="Inter,sans-serif" font-size="9" fill="#54595d" text-anchor="middle">1.
+            Export</text>
+          <text x="192" y="158" font-family="Inter,sans-serif" font-size="9" fill="#54595d" text-anchor="middle">2.
+            Upload</text>
+          <text x="341" y="194" font-family="Inter,sans-serif" font-size="9" fill="#54595d" text-anchor="middle">3.
+            Analyze</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <strong id="s1">100%</strong>
+        <span>Private</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <strong>Zero</strong>
+        <span>Server Uploads</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <strong>Free</strong>
+        <span>Forever</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <strong>.zip + .txt</strong>
+        <span>Supported</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ========== FEATURES ========== -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-heading">What ZipMee Can Do</h2>
+      <p class="section-sub">A single file upload reveals the complete story of your chat — stats, patterns, and
+        everything in between.</p>
+
+      <table class="feature-table" id="featureTable">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="fRow1">
+            <td class="feat-name">Chat Viewer</td>
+            <td>Your real conversation displayed just like WhatsApp — left and right bubbles with sender names.</td>
+          </tr>
+          <tr id="fRow2">
+            <td class="feat-name">Response Time Analytics</td>
+            <td>Find out who replies fastest and who takes hours — accurate measurements in seconds.</td>
+          </tr>
+          <tr id="fRow3">
+            <td class="feat-name">Word Frequency</td>
+            <td>Most used words per person. See who talks more and what they say — in clear numbers.</td>
+          </tr>
+          <tr id="fRow4">
+            <td class="feat-name">Emoji Statistics</td>
+            <td>Top emojis used by each person, ranked by frequency with a complete breakdown.</td>
+          </tr>
+          <tr id="fRow5">
+            <td class="feat-name">Message Search</td>
+            <td>Search any old message by keyword or filter by date — instant results, no delay.</td>
+          </tr>
+          <tr id="fRow6">
+            <td class="feat-name">Interaction Analytics</td>
+            <td>Message distribution, average word count per person, primary initiator, and conversation patterns.</td>
+          </tr>
+          <tr id="fRow7">
+            <td class="feat-name">100% Browser-Based</td>
+            <td>No data leaves your device. All processing happens locally — complete privacy guaranteed.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ========== HOW TO USE ========== -->
+  <section class="how-to-use" id="how-to-use">
+    <div class="container">
+      <h2 class="section-heading">How to Use ZipMee</h2>
+      <p class="section-sub">Just 3 simple steps to start analyzing your WhatsApp chat.</p>
+
+      <div class="steps">
+
+        <div class="step reveal" id="step1">
+          <div class="step-num">Step 1</div>
+          <div class="step-body">
+            <h3>Export Your Chat from WhatsApp</h3>
+            <p>
+              Open any WhatsApp chat. Tap the 3-dot menu (top right), then go to
+              <strong>More &rarr; Export Chat</strong>.
+              With or without media — both formats work perfectly.
+            </p>
+            <p>
+              On Android you'll get a <strong>.zip</strong> file.
+              On iPhone you'll get a <strong>.txt</strong> file. ZipMee supports both.
+            </p>
+          </div>
+          <!-- Step 1 SVG: Phone with Export Chat menu -->
+          <div class="step-img-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 220" class="step-img" id="stepImg1"
+              aria-label="Export chat from WhatsApp">
+              <rect x="16" y="8" width="128" height="204" rx="16" fill="#006c4a" opacity="0.08" stroke="#006c4a"
+                stroke-width="1.2" />
+              <rect x="28" y="30" width="104" height="160" rx="4" fill="#f8f9fa" />
+              <!-- WhatsApp green header -->
+              <rect x="28" y="30" width="104" height="28" rx="4" fill="#006c4a" opacity="0.85" />
+              <circle cx="44" cy="44" r="10" fill="white" opacity="0.2" />
+              <text x="44" y="48" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle"
+                font-weight="700">A</text>
+              <text x="80" y="47" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle"
+                font-weight="600">Alex</text>
+              <!-- 3 dots menu -->
+              <circle cx="116" cy="37" r="2.2" fill="white" opacity="0.9" />
+              <circle cx="123" cy="37" r="2.2" fill="white" opacity="0.9" />
+              <circle cx="130" cy="37" r="2.2" fill="white" opacity="0.9" />
+              <!-- Chat bubbles -->
+              <rect x="34" y="64" width="52" height="12" rx="6" fill="white" stroke="#e0e0e0" stroke-width="0.8" />
+              <rect x="34" y="80" width="40" height="12" rx="6" fill="white" stroke="#e0e0e0" stroke-width="0.8" />
+              <rect x="74" y="96" width="52" height="12" rx="6" fill="#006c4a" opacity="0.55" />
+              <rect x="80" y="112" width="46" height="12" rx="6" fill="#006c4a" opacity="0.55" />
+              <!-- Dropdown menu -->
+              <rect x="76" y="58" width="56" height="64" rx="4" fill="white" stroke="#a2a9b1" stroke-width="0.8"
+                filter="url(#shadow)" />
+              <text x="104" y="72" font-family="Inter,sans-serif" font-size="7.5" fill="#202122"
+                text-anchor="middle">View Contact</text>
+              <line x1="79" y1="76" x2="129" y2="76" stroke="#e0e0e0" stroke-width="0.8" />
+              <text x="104" y="86" font-family="Inter,sans-serif" font-size="7.5" fill="#202122"
+                text-anchor="middle">Media</text>
+              <line x1="79" y1="90" x2="129" y2="90" stroke="#e0e0e0" stroke-width="0.8" />
+              <text x="104" y="100" font-family="Inter,sans-serif" font-size="7.5" fill="#202122"
+                text-anchor="middle">Search</text>
+              <line x1="79" y1="104" x2="129" y2="104" stroke="#e0e0e0" stroke-width="0.8" />
+              <rect x="78" y="107" width="52" height="13" rx="3" fill="#e6f3ee" />
+              <text x="104" y="116" font-family="Inter,sans-serif" font-size="7.5" fill="#006c4a" text-anchor="middle"
+                font-weight="700">Export Chat ✓</text>
+              <!-- Home bar -->
+              <rect x="60" y="208" width="40" height="4" rx="2" fill="#006c4a" opacity="0.2" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="step-divider"></div>
+
+        <div class="step reveal" id="step2">
+          <div class="step-num">Step 2</div>
+          <div class="step-body">
+            <h3>Upload the File to ZipMee</h3>
+            <p>
+              Open the app. Click the upload button or simply
+              drag &amp; drop your file. Processing starts immediately —
+              even with 50,000+ messages.
+            </p>
+            <p>
+              No login required. No account needed. Just select your file and go.
+            </p>
+          </div>
+          <!-- Step 2 SVG: Browser with drag & drop -->
+          <div class="step-img-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" class="step-img" id="stepImg2"
+              aria-label="Upload file to ZipMee">
+              <!-- Browser frame -->
+              <rect x="8" y="8" width="184" height="164" rx="10" fill="#f8f9fa" stroke="#a2a9b1" stroke-width="1" />
+              <rect x="8" y="8" width="184" height="24" rx="10" fill="#eaecf0" />
+              <rect x="8" y="20" width="184" height="12" fill="#eaecf0" />
+              <circle cx="24" cy="20" r="5" fill="#e57373" opacity="0.75" />
+              <circle cx="38" cy="20" r="5" fill="#ffb74d" opacity="0.75" />
+              <circle cx="52" cy="20" r="5" fill="#81c784" opacity="0.75" />
+              <rect x="70" y="13" width="100" height="14" rx="4" fill="white" stroke="#a2a9b1" stroke-width="0.6" />
+              <text x="120" y="23" font-family="Inter,sans-serif" font-size="7" fill="#72777d"
+                text-anchor="middle">zipmee / upload</text>
+              <!-- Drop zone -->
+              <rect x="20" y="44" width="160" height="116" rx="8" fill="none" stroke="#006c4a" stroke-width="1.8"
+                stroke-dasharray="7,5" />
+              <!-- Up arrow icon -->
+              <path d="M100 114 L100 82" stroke="#006c4a" stroke-width="3" stroke-linecap="round" />
+              <path d="M86 96 L100 80 L114 96" stroke="#006c4a" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+              <text x="100" y="130" font-family="Inter,sans-serif" font-size="9" fill="#54595d"
+                text-anchor="middle">Drag &amp; drop your file</text>
+              <text x="100" y="145" font-family="Inter,sans-serif" font-size="8" fill="#72777d"
+                text-anchor="middle">.zip or .txt — both supported</text>
+              <!-- Floating ZIP file -->
+              <rect x="54" y="58" width="44" height="34" rx="5" fill="white" stroke="#006c4a" stroke-width="1"
+                transform="rotate(-12 76 75)" />
+              <text x="76" y="77" font-family="monospace" font-size="11" fill="#006c4a" text-anchor="middle"
+                font-weight="700" transform="rotate(-12 76 75)">.zip</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="step-divider"></div>
+
+        <div class="step reveal" id="step3">
+          <div class="step-num">Step 3</div>
+          <div class="step-body">
+            <h3>Explore Your Analytics</h3>
+            <p>
+              Your chat loads in WhatsApp style instantly.
+              Click the <strong>Analytics</strong> button to open the sidebar —
+              find word stats, response times, message counts, and more.
+            </p>
+            <p>
+              Date filters and message search are also available in the header.
+            </p>
+          </div>
+          <!-- Step 3 SVG: Analytics dashboard -->
+          <div class="step-img-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" class="step-img" id="stepImg3"
+              aria-label="Analytics dashboard">
+              <!-- Browser frame -->
+              <rect x="8" y="8" width="184" height="164" rx="10" fill="#f8f9fa" stroke="#a2a9b1" stroke-width="1" />
+              <rect x="8" y="8" width="184" height="24" rx="10" fill="#006c4a" opacity="0.9" />
+              <rect x="8" y="20" width="184" height="12" fill="#006c4a" opacity="0.9" />
+              <text x="24" y="23" font-family="Inter,sans-serif" font-size="8" fill="white"
+                font-weight="700">ZipMee</text>
+              <rect x="132" y="12" width="52" height="14" rx="4" fill="white" opacity="0.2" />
+              <text x="158" y="22" font-family="Inter,sans-serif" font-size="7.5" fill="white" text-anchor="middle"
+                font-weight="600">Analytics ▶</text>
+              <!-- Stat cards row -->
+              <rect x="16" y="40" width="46" height="26" rx="4" fill="#e6f3ee" stroke="#006c4a" stroke-width="0.5" />
+              <text x="39" y="52" font-family="Inter,sans-serif" font-size="9" fill="#006c4a" text-anchor="middle"
+                font-weight="700">1,240</text>
+              <text x="39" y="62" font-family="Inter,sans-serif" font-size="6.5" fill="#72777d"
+                text-anchor="middle">Messages</text>
+              <rect x="68" y="40" width="46" height="26" rx="4" fill="#e6f3ee" stroke="#006c4a" stroke-width="0.5" />
+              <text x="91" y="52" font-family="Inter,sans-serif" font-size="9" fill="#006c4a" text-anchor="middle"
+                font-weight="700">4.2s</text>
+              <text x="91" y="62" font-family="Inter,sans-serif" font-size="6.5" fill="#72777d" text-anchor="middle">Avg
+                Reply</text>
+              <rect x="120" y="40" width="46" height="26" rx="4" fill="#e6f3ee" stroke="#006c4a" stroke-width="0.5" />
+              <text x="143" y="52" font-family="Inter,sans-serif" font-size="9" fill="#006c4a" text-anchor="middle"
+                font-weight="700">😂 ❤️</text>
+              <text x="143" y="62" font-family="Inter,sans-serif" font-size="6.5" fill="#72777d"
+                text-anchor="middle">Top Emojis</text>
+              <!-- Chart area -->
+              <rect x="16" y="76" width="168" height="84" rx="5" fill="white" stroke="#e0e0e0" stroke-width="0.8" />
+              <text x="22" y="88" font-family="Inter,sans-serif" font-size="7" fill="#72777d">Word Frequency</text>
+              <!-- Bars (drawn from bottom: y=152, heights going up) -->
+              <rect x="28" y="122" width="14" height="26" rx="2" fill="#006c4a" opacity="0.7" />
+              <rect x="48" y="110" width="14" height="38" rx="2" fill="#006c4a" opacity="0.85" />
+              <rect x="68" y="130" width="14" height="18" rx="2" fill="#006c4a" opacity="0.55" />
+              <rect x="88" y="116" width="14" height="32" rx="2" fill="#006c4a" opacity="0.75" />
+              <rect x="108" y="126" width="14" height="22" rx="2" fill="#006c4a" opacity="0.6" />
+              <rect x="128" y="134" width="14" height="14" rx="2" fill="#006c4a" opacity="0.45" />
+              <rect x="148" y="119" width="14" height="29" rx="2" fill="#006c4a" opacity="0.65" />
+              <line x1="22" y1="152" x2="174" y2="152" stroke="#e0e0e0" stroke-width="0.8" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ========== CTA ========== -->
+  <section class="cta-section" id="cta">
+    <div class="container cta-inner">
+      <h2 class="cta-title">Ready to Start?</h2>
+      <p class="cta-desc">
+        Free. Private. No registration. Just upload your file and explore.
+      </p>
+      <a href="zipmee.html" class="btn-primary" id="ctaBtn">Open ZipMee App</a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">ZipMee</span>
+      <span class="footer-copy">2026 &mdash; 100% Browser-Based &mdash; No Data Leaves Your Device</span>
+    </div>
+  </footer>
+
+  <script src="landing.js"></script>
+</body>
+
+</html>

@@ -1,2 +1,4 @@
-# zipmee
-whatsapp chat analysing tool
+# ZIpME
+a chat preview
+
+Author Astha and Himanshu

@@ -1,0 +1,234 @@
+/* Viral Report CSS - Modern, engaging, shareable design */
+
+.vr-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+.vr-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.vr-close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.vr-report-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.vr-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.vr-header h2 {
+    margin: 0;
+    font-size: 24px;
+    background: linear-gradient(45deg, #FF007A, #7928CA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.vr-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #a0a0b0;
+}
+
+.vr-score-section {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.vr-score-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(#FF007A, #7928CA);
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid #1a1a2e;
+    box-shadow: 0 0 15px rgba(255, 0, 122, 0.3);
+}
+
+#vr-score-value {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.vr-score-circle small {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+#vr-score-title {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #fff;
+}
+
+#vr-score-desc {
+    margin: 0;
+    font-size: 13px;
+    color: #a0a0b0;
+}
+
+.vr-ai-summary {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #25D366;
+    padding: 12px 15px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.vr-ai-summary strong {
+    color: #25D366;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.vr-ai-summary p {
+    margin: 0;
+    color: #dcdcdc;
+}
+
+.vr-split-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.vr-vs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1a1a2e;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #a0a0b0;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.vr-user-card {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    padding: 15px 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.vr-user-card:first-child {
+    margin-right: 5px;
+}
+
+.vr-user-card:last-child {
+    margin-left: 5px;
+}
+
+.vr-user-card h4 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+}
+
+.vr-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.vr-tag {
+    background: rgba(37, 211, 102, 0.15);
+    color: #25D366;
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.vr-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.vr-badge {
+    background: rgba(255, 0, 122, 0.15);
+    color: #FF007A;
+    font-size: 10px;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.vr-footer {
+    text-align: center;
+    font-size: 11px;
+    color: #606070;
+    font-weight: 500;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 15px;
+}
+
+.vr-share-btn {
+    width: 100%;
+    padding: 15px;
+    background: white;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.vr-share-btn:active {
+    transform: scale(0.98);
+}

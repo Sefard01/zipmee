@@ -1,0 +1,71 @@
+# WhatsApp Chat Analyzer - Inner Workings & Architecture
+
+Ye file iss project ke backend logic aur inner workings ko detail me explain karti hai. Project ko extreme performance ke liye optimize kiya gaya hai. Yahan main functions aur unke kaam bataye gaye hain:
+
+## 1. CORE ARCHITECTURE (Main Concept)
+Ye app do hisso me divided hai:
+- **Main Thread (UI):** Ye thread sirf HTML elements ko display aur animate karta hai.
+- **Web Worker (Background Thread):** Ye thread bhari bharkam file (e.g. 50MB txt) ko parse (read) karta hai. Is wajah se browser kabhi hang nahi hota aur UI smooth rehta hai.
+
+---
+
+## 2. MAIN FUNCTIONS & THEIR WORKING
+
+### A. zipInput.addEventListener("change")
+- **Kaam:** Ye app ka entry point hai. Jaise hi user file (ZIP/TXT) select karta hai, ye trigger hota hai.
+- **Working:** 
+  - Agar file '.txt' hai, toh direct text read kar leta hai.
+  - Agar file '.zip' hai, toh 'JSZip' library ka use karke usko memory me extract karta hai. 
+  - ZIP extraction ke time ye `meta.percent` se progress calculate karta hai aur "Extracting ZIP... 40%" jaisa real-time progress dikhata hai (Jisse 0% par stuck hone ki problem solve hoti hai).
+  - Saare text aur media (images/videos) nikalne ke baad, ye text Web Worker ko bhej deta hai parsing ke liye.
+
+### B. workerCode (Web Worker Logic)
+- **Kaam:** Chat history ke raw text ko structured format (Date, Time, Sender, Message) me convert karna.
+- **Working (Extreme Optimization):**
+  - Ye standard 'String.split("\\n")' aur 'Regex' ka use NAHI karta kyunki array aur regex slow hote hain.
+  - Iski jagah, ye **Raw String Indexing (indexOf)** ka use karke ek hi loop me lakho lines padh leta hai.
+  - Jaise hi worker 50 messages parse kar leta hai, ye turant 'top50' event main thread ko bhej deta hai, taaki user wait na kare aur turant chat padhna shuru kar de.
+  - Uske baad background me baaki parsing chalti rehti hai aur mini-progress bar update hota rehta hai. Jab 100% ho jata hai, toh 'done' event bhej deta hai.
+
+### C. renderChatMode(mode)
+- **Kaam:** UI me Chat display karna chunk-by-chunk (50 messages ek baar me).
+- **Working:**
+  - Jab mode 'top' hota hai, toh chat upar se 50 messages dikhati hai.
+  - Jab mode 'bottom' hota hai, toh seedha aakhiri ke 50 messages dikhati hai.
+  - Jab aap scroll karte hain, toh `scrollListener` event trigger hota hai. Agar aap niche jaate hain, toh ye agle 50 messages append kar deta hai (jisse infinite scrolling feel aati hai).
+
+### D. createMessageNodes(messages, isPrepend)
+- **Kaam:** JavaScript Objects ko HTML elements (<div class="message">) me convert karna.
+- **Working:**
+  - Har message ka Date, Time, Sender padh kar usko class (left / right) assign karta hai.
+  - **Media Linking:** Agar message text me kisi media (.jpg, .mp4) ka naam hai, toh ye Regex ka use karke check karta hai ki kya 'mediaMap' (jo JSZip se nikla tha) me wo media hai ya nahi. Agar hai, toh '<img>' ya '<video>' tag bana deta hai.
+
+### E. updateScrollBtnState()
+- **Kaam:** "Go to Bottom" aur "Go to Top" button ko smartly toggle karna.
+- **Working:**
+  - Ye function check karta hai ki DOM ka scroll bar exactly bottom me hai ya nahi (`chatWrapper.scrollTop + chatWrapper.clientHeight >= chatWrapper.scrollHeight`).
+  - Agar user bilkul bottom me hai aur saari chats load ho chuki hain, toh ye button ko "Go to Top (↑)" bana deta hai.
+  - Agar user thoda sa bhi upar (upwards) scroll karta hai, toh ye wapas "Go to Bottom (↓)" ban jata hai.
+
+### F. calculateAnalytics(messages)
+- **Kaam:** Words, Emojis, Total Chats, aur Average Response Time count karna.
+- **Working (Garbage-Collection Free Optimization):**
+  - Text ko spaces se todne (split) ke bajaye, ye function character-by-character (ASCII `charCodeAt`) scan karta hai. Isse naye arrays memory me nahi bante aur calculation 100x fast ho jati hai.
+  - Top 10 words aur Top 10 emojis nikal kar right side wale Analytics Sidebar me render karta hai.
+
+### G. Search Filters (textSearch & dateSearch)
+- **Kaam:** Purani chats dhundhna ya kisi specific date ki chats nikalna.
+- **Working:**
+  - Ye simply 'parsedMessages' array ko filter karta hai unke ander ke text (lowercase) ke hisaab se.
+  - Filtered data ko 'renderChat()' function ke dwara display kara deta hai. Agar query hatate hain, toh wapas full chat render kar deta hai.
+
+### H. swapUsersBtn.onclick
+- **Kaam:** Sender aur Receiver ki identity aur colors ko aapas me badalna (swap karna).
+- **Working:**
+  - Click par 'currentUser' aur 'otherUser' variables ki values aapas me interchange kar di jati hain.
+  - Phir 'renderChatMode()' wapas run kiya jata hai jisse jiska color Green tha wo White ban jata hai, aur left wala right shift ho jata hai.
+  - Button me animation ke liye CSS '--rotation' variable har click par 180 degrees badhaya jata hai.
+
+---
+
+Ye architecture isliye design kiya gaya hai taaki 1 lakh se zyada lines ka data browser me bina crash ya freeze huye instantly chal sake. JSZip ka streaming extraction aur Worker ka manual byte parsing is app ka sabse bada powerhouse hai!
